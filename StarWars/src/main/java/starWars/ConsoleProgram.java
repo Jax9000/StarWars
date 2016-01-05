@@ -15,8 +15,6 @@ import org.drools.runtime.StatefulKnowledgeSession;
 
 import javax.swing.*;
 
-import java.util.*;
-
 public class ConsoleProgram {
 	
 	public static final void main(String[] args) {
@@ -27,11 +25,8 @@ public class ConsoleProgram {
             KnowledgeRuntimeLogger logger = KnowledgeRuntimeLoggerFactory.newFileLogger(ksession, "test");
             // go !
             JOptionPane.showMessageDialog(null, "Pomyœl o czymœ z StarWars, program przy\npomocy dialogu postara siê odgadnaæ to coœ.", "StarWars", JOptionPane.INFORMATION_MESSAGE);
-            Question q1 = new Question(1, "MyName1", "wystepowanie1", new String[] {"asd", "asd"} );
-            Question q2 = new Question(1, "MyName2", "wystepowanie2", new String[] {"asd", "asd", "asdawd"} );
-            
-            YAMLManager.PrintQuestionList(Arrays.asList(q1, q2));
-            
+
+            YAMLManager.LoadDatabase(Database.defaultSaveFilePath).PrintToConsole();;
             ksession.fireAllRules();
             logger.close();
         } catch (Throwable t) {

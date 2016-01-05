@@ -5,8 +5,6 @@ import java.util.HashMap;
 
 import javax.swing.*;
 
-import org.yaml.snakeyaml.Yaml;
-
 /**
  * Class for storing our questions.
  * @author Konrad
@@ -17,39 +15,58 @@ public class Question {
 	public Question(int id, String name, String factKey, String[] list) {
 		this.id = id;
 		this.content = name;
-		this.factKey = factKey;
+		this.factType = factKey;
 		this.possiblyAnswers = list;
 	}
 	
 	public int getId() {
 		return id;
 	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getContent() {
 		return content;
 	}
-	public String getFactKey() {
-		return factKey;
+	public void setContent(String content) {
+		this.content = content;
 	}
-		public String[] getPossiblyAnswers() {
+	
+	public String getFactType() {
+		return factType;
+	}
+	public void setFactType(String factType) {
+		this.factType = factType;
+	}
+	
+	public String[] getPossiblyAnswers() {
 		return possiblyAnswers;
+	}
+	public void setPossiblyAnswers(String[] possiblyAnswers) {
+		this.possiblyAnswers = possiblyAnswers;
+	}
+		
+	public Question() {
+		
 	}
 	
 	/**
 	 * Question ID.
 	 */
-	public final int id;
+	private int id;
 	/**
 	 * Question.
 	 */
-	public final String content;
+	public String content;
 	/**
-	 * Fact's key.
+	 * Fact's type.
 	 */
-	public final String factKey;
+	public String factType;
 	/**
 	 * Answers array.
 	 */
-	public final String[] possiblyAnswers;
+	public String[] possiblyAnswers;
 	
 	/**
 	 * Show question dialog and get answer.
@@ -76,11 +93,24 @@ public class Question {
 				question.getPossiblyAnswers()[0]);
 		
 				
-		return new Fact(question.factKey, answer);
+		return new Fact(question.factType, answer);
 	}
 	
-	public void PrintYAML() {
-		System.out.println(new Yaml().dump(this));
+	
+	public void PrintToConsole() {
+		System.out.println("Question >> Content: " + this.content +
+				"; ID: " + this.id + "; FactType: " + factType + "; Answers: " + printAnswers());;
+	}	
+	String printAnswers() {
+		String result = "[";
+		boolean putComma = false;
+		for(String str : possiblyAnswers) {
+			result+= putComma ? ", " : "";
+			result += str;
+			putComma = true;
+		}
+		result += "]";
+		return result;
 	}
 
 	/**

@@ -8,21 +8,21 @@ package starWars;
 public class Fact {
 	
 	//constructors
-	public Fact(String key, String value) {
-		this.key = key;
+	public Fact(String type, String value) {
+		this.type = type;
 		this.value = value;
 	}
-	public Fact(String key, boolean value) {
-		this(key, convertBool(value));
+	public Fact(String type, boolean value) {
+		this(type, convertBool(value));
 	}
-	public Fact(String key, int value) {
-		this(key, Integer.toString(value));
+	public Fact(String type, int value) {
+		this(type, Integer.toString(value));
 	}
-	public Fact(String key, float value) {
-		this(key, Float.toString(value));
+	public Fact(String type, float value) {
+		this(type, Float.toString(value));
 	}
-	public Fact(String key, Object obj) {
-		this.key = key;
+	public Fact(String type, Object obj) {
+		this.type = type;
 		if(obj instanceof String)
 			setValue((String)obj);
 		if(obj instanceof Double)
@@ -56,11 +56,11 @@ public class Fact {
 	}
 	
 	//key getter and setter
-	public String getKey() {
-		return key;
+	public String getType() {
+		return type;
 	}
-	public void setKey(String key) {
-		this.key = key;
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	private static String convertBool(boolean value) {
@@ -68,7 +68,7 @@ public class Fact {
 	}
 	
 	//private fields
-	private String key;
+	private String type;
 	private String value;
 
 }
