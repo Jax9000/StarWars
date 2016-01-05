@@ -2,19 +2,31 @@
 package starWars
 
 //list any import classes here.
-
-
+import starWars.Question;
+import javax.swing.*;
 
 //declare any global variables here
 
 
+rule "start"
+	salience 1000
+	when
+       
+    then
+	Fact o = Question.Ask("like_me");
+	insert(o);
+
+        
+
+end
 
 
-rule "Your First Rule"
+rule "spierdalaj"
 
     when
-        //conditions
+        Fact(type=="lubienie", value=="yes")
     then
+    	JOptionPane.showMessageDialog(null, "Te¿ Ciê lubiê.", "Wynik", JOptionPane.INFORMATION_MESSAGE);
         //actions
 
 end

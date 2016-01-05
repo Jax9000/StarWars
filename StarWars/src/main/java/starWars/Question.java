@@ -60,7 +60,7 @@ public class Question {
 	 * @return
 	 * New fact.
 	 */
-	public Fact Ask(String questionID) {
+	public static Fact Ask(String questionID) {
 		Question question = database.GetQuestion(questionID);
 		
 		if(question == null) {

@@ -14,7 +14,7 @@ public class Database {
 	
 	public Question GetQuestion(String questionID) {
 		for(Question question : questionList) {
-			if(question.getId() == questionID)
+			if(question.getId().equals(questionID))
 				return question;
 		}
 		

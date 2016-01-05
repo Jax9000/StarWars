@@ -26,7 +26,9 @@ public class ConsoleProgram {
             // go !
             JOptionPane.showMessageDialog(null, "Pomyœl o czymœ z StarWars, program przy\npomocy dialogu postara siê odgadnaæ to coœ.", "StarWars", JOptionPane.INFORMATION_MESSAGE);
 
-            YAMLManager.LoadDatabase(Database.defaultSaveFilePath).PrintToConsole();;
+            Database database = YAMLManager.LoadDatabase(Database.defaultSaveFilePath);
+            database.PrintToConsole();
+            Question.setDatabase(database);
             ksession.fireAllRules();
             logger.close();
         } catch (Throwable t) {

@@ -39,6 +39,12 @@ public class Fact {
 	public String getValue() {
 		return value;
 	}
+	public boolean getBoolValue() {
+		if(value.equals("yes"))
+			return true;
+		else
+			return false;
+	}
 	public void setValue(String value) {
 		this.value = value;
 	}
