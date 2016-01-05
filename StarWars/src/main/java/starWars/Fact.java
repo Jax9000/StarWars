@@ -21,6 +21,19 @@ public class Fact {
 	public Fact(String key, float value) {
 		this(key, Float.toString(value));
 	}
+	public Fact(String key, Object obj) {
+		this.key = key;
+		if(obj instanceof String)
+			setValue((String)obj);
+		if(obj instanceof Double)
+			setValue((double)obj);
+		if(obj instanceof Float)
+			setValue((float)obj);
+		if(obj instanceof Integer)
+			setValue((int)obj);
+		if(obj instanceof Boolean)
+			setValue((boolean)obj);
+	}
 	
 	//value getter and setters
 	public String getValue() {
@@ -37,6 +50,9 @@ public class Fact {
 	}
 	public void setValue(float value) {
 		this.value = Float.toString(value);
+	}
+	public void setValue(double value) {
+		this.value = Double.toString(value);
 	}
 	
 	//key getter and setter
