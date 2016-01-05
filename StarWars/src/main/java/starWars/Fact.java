@@ -55,7 +55,7 @@ public class Fact {
 		this.value = Double.toString(value);
 	}
 	
-	//key getter and setter
+	//type getter and setter
 	public String getType() {
 		return type;
 	}
@@ -63,6 +63,7 @@ public class Fact {
 		this.type = type;
 	}
 
+	//converter
 	private static String convertBool(boolean value) {
 		return value?"yes":"no";
 	}

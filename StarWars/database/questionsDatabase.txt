@@ -5,17 +5,17 @@
 questionList:
 - content: Lubisz mnie?
   factType: lubienie
-  id: 1
+  id: like_me
   possiblyAnswers: [Tak, Nie]
 - content: Kogo bys tutaj chcial?
   factType: chcenie
-  id: 1
+  id: want_who
   possiblyAnswers: [Jacek, Konrad]
 - content: Kupa numer 3 super pytanie?
   factType: wystepowanie2
-  id: 1
+  id: shit
   possiblyAnswers: [asd, asd, asdawd]
 - content: Ostatnie  zdecydowanie najlepsze pytanie w ktorym bardzo potrzebne sa przecinki...
   factType: wystepowanie2
-  id: 1
+  id: last_best
   possiblyAnswers: [asd, asd, asdawd]
