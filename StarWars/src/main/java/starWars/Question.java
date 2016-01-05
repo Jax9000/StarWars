@@ -61,13 +61,14 @@ public class Question {
 	 * New fact.
 	 */
 	public static Fact Ask(String questionID) {
+
 		Question question = database.GetQuestion(questionID);
 		
 		if(question == null) {
 			JOptionPane.showMessageDialog(null, "Question \"" + questionID + "\" not exists.");
 			return null;
 		}
-		
+		System.out.println("Question asked: " + question.getContent());
 		Object answer = JOptionPane.showInputDialog(
 				null,
 				question.content,

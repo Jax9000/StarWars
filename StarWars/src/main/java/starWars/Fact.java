@@ -11,6 +11,7 @@ public class Fact {
 	public Fact(String type, String value) {
 		this.type = type;
 		this.value = value;
+		System.out.println("Fact \"" + this.type + "\" created. Value: " + this.value);
 	}
 	public Fact(String type, boolean value) {
 		this(type, convertBool(value));
@@ -33,6 +34,7 @@ public class Fact {
 			setValue((int)obj);
 		if(obj instanceof Boolean)
 			setValue((boolean)obj);
+		System.out.println("Fact \"" + this.type + "\" created. Value:  " + this.value);
 	}
 	
 	//value getter and setters
@@ -40,10 +42,16 @@ public class Fact {
 		return value;
 	}
 	public boolean getBoolValue() {
-		if(value.equals("yes"))
+		if(value.equals("yes") || value.equals("Yes") || value.equals("Tak") || value.equals("tak"))
 			return true;
 		else
 			return false;
+	}
+	public int getIntValue() {
+		return Integer.parseInt(value);
+	}
+	public float getFloatValue() {
+		return Float.parseFloat(value);
 	}
 	public void setValue(String value) {
 		this.value = value;

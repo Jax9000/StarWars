@@ -15,27 +15,20 @@ rule "start"
     then
 	Fact o = Question.Ask("like_me");
 	insert(o);
-
-        
-
 end
 
 
-rule "spierdalaj"
-
+rule "lubie_cie"
     when
-        Fact(type=="lubienie", value=="yes")
+        Fact(type=="lubienie", value=="Tak")
     then
     	JOptionPane.showMessageDialog(null, "Te¿ Ciê lubiê.", "Wynik", JOptionPane.INFORMATION_MESSAGE);
-        //actions
 
 end
 
-rule "Your Second Rule"
-    //include attributes such as "salience" here...
-    when
-        //conditions
-    then
-        //actions
-
+rule "nie_lubie_cie"
+	when
+		Fact(type=="lubienie", value=="Nie")
+	then
+		JOptionPane.showMessageDialog(null, "Spierdalaj.", "Wynik", JOptionPane.INFORMATION_MESSAGE);
 end
