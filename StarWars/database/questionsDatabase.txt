@@ -19,3 +19,7 @@ questionList:
   factType: wystepowanie2
   id: last_best
   possiblyAnswers: [asd, asd, asdawd]
+- content: Podaj inta 3.
+  factType: test_inta
+  id: int_value
+  possiblyAnswers: [INT]

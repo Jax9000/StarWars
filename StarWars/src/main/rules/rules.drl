@@ -23,6 +23,7 @@ rule "lubie_cie"
         Fact(type=="lubienie", value=="Tak")
     then
     	JOptionPane.showMessageDialog(null, "Te¿ Ciê lubiê.", "Wynik", JOptionPane.INFORMATION_MESSAGE);
+    	insert(Question.Ask("int_value"));
 
 end
 
@@ -31,4 +32,18 @@ rule "nie_lubie_cie"
 		Fact(type=="lubienie", value=="Nie")
 	then
 		JOptionPane.showMessageDialog(null, "Spierdalaj.", "Wynik", JOptionPane.INFORMATION_MESSAGE);
+end
+
+rule "dobry_int"
+	when
+		Fact(type=="test_inta", value==3)
+	then
+		JOptionPane.showMessageDialog(null, "Sczytany int = 3.", "Wynik", JOptionPane.INFORMATION_MESSAGE);
+end
+
+rule "zly_int"
+	when
+		Fact(type=="test_inta", value!=3)
+	then
+		JOptionPane.showMessageDialog(null, "Ciota, zly int.", "Wynik", JOptionPane.INFORMATION_MESSAGE);
 end

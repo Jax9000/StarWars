@@ -69,9 +69,27 @@ public class Question {
 			return null;
 		}
 		System.out.println("Question asked: " + question.getContent());
+		
+		if(question.getPossiblyAnswers().length < 2) {
+			String result = "";
+
+			switch(question.getPossiblyAnswers()[0].toUpperCase()) {
+			case "INT":
+				while(result.equals(null) || parseInt(result) == Integer.MIN_VALUE) {
+					result = JOptionPane.showInputDialog(question.getContent());
+				}
+				return new Fact(question.getFactType(), parseInt(result));
+			case "FLOAT":
+				while(result.equals(null) || parseFloat(result) == Float.MIN_VALUE) {
+					result = JOptionPane.showInputDialog(question.getContent());
+				}
+				return new Fact(question.getFactType(), parseFloat(result));
+			}
+		}
+		
 		Object answer = JOptionPane.showInputDialog(
 				null,
-				question.content,
+				question.getContent(),
 				questionID,
 				JOptionPane.QUESTION_MESSAGE,
 				null,
@@ -79,7 +97,7 @@ public class Question {
 				question.getPossiblyAnswers()[0]);
 		
 				
-		return new Fact(question.factType, answer);
+		return new Fact(question.getFactType(), answer);
 	}
 	
 	public void PrintToConsole() {
@@ -98,6 +116,22 @@ public class Question {
 		result += "]";
 		return result;
 	}
+	
+	private static int parseInt(String data) {
+		  int val = Integer.MIN_VALUE;
+		  try {
+		    val = Integer.parseInt(data);
+		  } catch (NumberFormatException nfe) { }
+		  return val;
+	}
+	
+	private static float parseFloat(String data) {
+		  float val = Float.MIN_VALUE;
+		  try {
+		    val = Float.parseFloat(data);
+		  } catch (NumberFormatException nfe) { }
+		  return val;
+	}
 
 	//Database
 	private static Database database = new Database();
@@ -110,13 +144,13 @@ public class Question {
 	/**
 	 * Question.
 	 */
-	public String content;
+	private String content;
 	/**
 	 * Fact's type.
 	 */
-	public String factType;
+	private String factType;
 	/**
 	 * Answers array.
 	 */
-	public String[] possiblyAnswers;
+	private String[] possiblyAnswers;
 }

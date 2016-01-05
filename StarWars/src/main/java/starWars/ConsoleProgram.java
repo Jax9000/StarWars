@@ -25,7 +25,8 @@ public class ConsoleProgram {
             KnowledgeRuntimeLogger logger = KnowledgeRuntimeLoggerFactory.newFileLogger(ksession, "test");
             // go !
             JOptionPane.showMessageDialog(null, "Pomyœl o czymœ z StarWars, program przy\npomocy dialogu postara siê odgadnaæ to coœ.", "StarWars", JOptionPane.INFORMATION_MESSAGE);
-
+            
+            
             Database database = YAMLManager.LoadDatabase(Database.defaultSaveFilePath);
             database.PrintToConsole();
             Question.setDatabase(database);
