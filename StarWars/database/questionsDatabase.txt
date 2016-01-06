@@ -1,6 +1,7 @@
 #Nie mozna uzywac polskich znakow!
 #Przecinki w pytaniach zakazane, ale kropki moga byc!
 #Zapewne wiele innych rzeczy tez nie przejdzie...
+#W polu possibly answers podaj tylko jeden parametr [INT] lub [FLOAT] aby wsyswietlic okienko do wpisania wartosci int/float.
 !database
 questionList:
 - content: Lubisz mnie?
