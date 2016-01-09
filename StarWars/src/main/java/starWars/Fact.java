@@ -82,6 +82,12 @@ public class Fact {
 		return value?"yes":"no";
 	}
 	
+	//comparator
+	public boolean CompareWith(String value)
+	{
+		return this.value.equals(value);
+	}
+	
 	//private fields
 	private String type;
 	private String value;

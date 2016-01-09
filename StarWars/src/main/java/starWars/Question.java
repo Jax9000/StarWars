@@ -96,7 +96,8 @@ public class Question {
 				question.getPossiblyAnswers(),
 				question.getPossiblyAnswers()[0]);
 		
-				
+		if(answer == null)
+			StopApplication();
 		return new Fact(question.getFactType(), answer);
 	}
 	
@@ -133,6 +134,11 @@ public class Question {
 		  return val;
 	}
 
+	private static void StopApplication()
+	{
+		System.out.println("Terminated by user");
+		System.exit(0);
+	}
 	//Database
 	private static Database database = new Database();
 	
