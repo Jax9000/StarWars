@@ -7,12 +7,25 @@ import javax.swing.*;
 
 //declare any global variables here
 
-rule "start"
-	salience 1000
+rule "czy_czlowiek"
+	salience $order
 	when
-       
+		Ranking(ruleId == 0, $order: order) // ranking sluzy do odpalania regul w losowym porzadku
+		not( exists Fact() )
     then
-	Fact o = Question.Ask("like_me");
+	Fact o = Question.Ask("human");
+	insert(o);
+end;
+
+
+rule "czy_zywa_osoba"
+	salience $order
+	when
+		Ranking(ruleId == 1, $order: order)
+		not( exists Fact() )
+    then
+	Fact o = Question.Ask("living_being");
 	insert(o);
 end
+
 

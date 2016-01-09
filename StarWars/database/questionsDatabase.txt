@@ -24,3 +24,11 @@ questionList:
   factType: test_inta
   id: int_value
   possiblyAnswers: [INT]
+- content: Czy twoja postac jest czlowiekiem?
+  factType: czlowiek
+  id: human
+  possiblyAnswers: [Tak, Nie]
+- content: Czy twoja postac jest zywa istota?
+  factType: zywa_istota
+  id: living_being
+  possiblyAnswers: [Tak, Nie]

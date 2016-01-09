@@ -6,6 +6,30 @@ import starWars.Question;
 import javax.swing.*;
 
 //declare any global variables here
-
-
-
+/*
+proponowani "bohaterowie":
+Anakin Skywalker / Darth Vader
+Luke Skywalker
+Obi-wan Kenobi
+Yoda
+Leia Organa
+Han Solo
+Chewbacca
+R2-D2
+C3-PO
+BB8 (sw7)
+Rei (sw7)
+Finn (sw7)
+Kylo Ren (sw7)
+AT-AT
+Boba Fett
+Padme Amidala
+Jabba
+Darth Maul
+Darth Sidious
+Lando Calrissian
+Count Dooku
+Qui-gon Jinn
+Jar-jar Binks
+Grievous
+*/
