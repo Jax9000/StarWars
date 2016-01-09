@@ -39,7 +39,8 @@ public class ConsoleProgram {
 
     private static KnowledgeBase readKnowledgeBase() throws Exception {
         KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
-        kbuilder.add(ResourceFactory.newClassPathResource("rules.drl"), ResourceType.DRL);
+        kbuilder.add(ResourceFactory.newClassPathResource("knowlage.drl"), ResourceType.DRL);
+        kbuilder.add(ResourceFactory.newClassPathResource("questions.drl"), ResourceType.DRL);
         KnowledgeBuilderErrors errors = kbuilder.getErrors();
         if (errors.size() > 0) {
             for (KnowledgeBuilderError error: errors) {

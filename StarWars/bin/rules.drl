@@ -1,4 +1,6 @@
 //created on: 2016-01-02
+//this file is created to show how to use rules.
+//be aware: rules placed in this file will not be loaded into app memory
 package starWars
 
 //list any import classes here.
