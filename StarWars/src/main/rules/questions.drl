@@ -12,11 +12,10 @@ rule "czy_czlowiek"
 	when
 		Ranking(ruleId == 0, $order: order)
 		not(exists Fact(type == "zywa_istota", value == "Nie"))
-		not(exists Fact(type == "czlowiek"))
     then
 		Fact fact = Question.Ask("czlowiek");
 		insert(fact);
-		if(fact.CompareWith("Tak"))
+		if(fact.CompareValueWith("Tak"))
 			insert(new Fact("zywa_istota", "Tak"));
 end;
 
@@ -29,7 +28,7 @@ rule "czy_zywa_osoba"
 		Fact fact = Question.Ask("zywa_istota");
 		insert(fact);
 		
-		if(fact.getValue() == "Nie")
+		if(fact.CompareValueWith("Nie"))
 			insert(new Fact("czlowiek", "Nie"));
 end;
 

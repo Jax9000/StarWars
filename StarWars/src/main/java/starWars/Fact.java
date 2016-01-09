@@ -83,7 +83,7 @@ public class Fact {
 	}
 	
 	//comparator
-	public boolean CompareWith(String value)
+	public boolean CompareValueWith(String value)
 	{
 		return this.value.equals(value);
 	}
