@@ -1,6 +1,8 @@
 package starWars;
 
 
+import java.util.Random;
+
 import org.drools.KnowledgeBase;
 import org.drools.KnowledgeBaseFactory;
 import org.drools.builder.KnowledgeBuilder;
@@ -30,6 +32,7 @@ public class ConsoleProgram {
             Database database = YAMLManager.LoadDatabase(Database.defaultSaveFilePath);
             database.PrintToConsole();
             Question.setDatabase(database);
+            InsertRankingMultiple(100, ksession);
             ksession.fireAllRules();
             logger.close();
         } catch (Throwable t) {
@@ -51,6 +54,16 @@ public class ConsoleProgram {
         KnowledgeBase kbase = KnowledgeBaseFactory.newKnowledgeBase();
         kbase.addKnowledgePackages(kbuilder.getKnowledgePackages());
         return kbase;
+    }
+    
+    private static void InsertRankingMultiple(int times, StatefulKnowledgeSession ksession)
+    {
+        Random random = new Random();
+        for(int i = 0; i<times; i++)
+        {
+        	Ranking ranking = new Ranking(i, random.nextInt());
+        	ksession.insert(ranking);
+        }
     }
     
 }
