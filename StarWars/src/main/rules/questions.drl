@@ -10,22 +10,47 @@ import javax.swing.*;
 rule "czy_czlowiek"
 	salience $order
 	when
-		Ranking(ruleId == 0, $order: order) // ranking sluzy do odpalania regul w losowym porzadku
-		not( exists Fact() )
+		Ranking(ruleId == 0, $order: order)
+		not(exists Fact(type == "zywa_istota", value == "Nie"))
+		not(exists Fact(type == "czlowiek"))
     then
-	Fact o = Question.Ask("human");
-	insert(o);
+		Fact fact = Question.Ask("czlowiek");
+		insert(fact);
+		if(fact.CompareWith("Tak"))
+			insert(new Fact("zywa_istota", "Tak"));
 end;
 
-
 rule "czy_zywa_osoba"
-	salience $order
+	salience $order	
 	when
 		Ranking(ruleId == 1, $order: order)
-		not( exists Fact() )
+		not(exists Fact(type == "zywa_istota"))
     then
-	Fact o = Question.Ask("living_being");
-	insert(o);
-end
+		Fact fact = Question.Ask("zywa_istota");
+		insert(fact);
+		
+		if(fact.getValue() == "Nie")
+			insert(new Fact("czlowiek", "Nie"));
+end;
+
+rule "jaki_kolor_wlosow"
+	salience $order
+	when
+		Ranking(ruleId == 2, $order: order)
+		Fact(type == "zywa_istota", value == "Tak")
+	then
+		Fact fact = Question.Ask("kolor_wlosow");
+		insert(fact);
+end;
+
+rule "jaka_plec"
+	salience $order
+	when
+		Ranking(ruleId == 3, $order:order)
+		Fact(type == "zywa_istota", value == "Tak")
+	then
+		Fact fact = Question.Ask("plec");
+		insert(fact);
+end;
 
 

@@ -26,9 +26,17 @@ questionList:
   possiblyAnswers: [INT]
 - content: Czy twoja postac jest czlowiekiem?
   factType: czlowiek
-  id: human
+  id: czlowiek
   possiblyAnswers: [Tak, Nie]
 - content: Czy twoja postac jest zywa istota?
   factType: zywa_istota
-  id: living_being
+  id: zywa_istota
   possiblyAnswers: [Tak, Nie]
+- content: Jakiej plci jest twoja postac?
+  factType: plec
+  id: plec
+  possiblyAnswers: [Mezczyzna, Kobieta, Niewiadomo, Obojnak]
+- content: Jakiego koloru wlosy ma twoja postac?
+  factType: kolor_wlosow
+  id: kolor_wlosow
+  possiblyAnswers: [Blond, Ciemny blond, Brazowe, Siwe, Kasztanowe, Czarne, Nie ma]
