@@ -31,8 +31,8 @@ questionList:
 - content: Jakiej broni uzywa twoja postac?
   factType: bron
   id: bron
-  possiblyAnswers: [Blaster, Miecz Swietlny, Inna, Brak]
-- content: Jakiej broni uzywa twoja postac?
+  possiblyAnswers: [Blaster, Miecz swietlny, Inna, Brak]
+- content: Jakiego koloru miecz posiada twoja postac?
   factType: kolor_miecza
   id: kolor_miecza
   possiblyAnswers: [Niebieski, Zielony, Czerwony, Fioletowy]
@@ -64,3 +64,8 @@ questionList:
   factType: zabity_przez_syna
   id: zabity_przez_syna
   possiblyAnswers: [Tak, Nie]
+- content: Czy ojcem tej postaci jest Darth Vader?
+  factType: ojciec
+  id: ojciec
+  possiblyAnswers: [Tak, Nie]
+  
