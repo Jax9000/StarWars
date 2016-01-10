@@ -19,19 +19,6 @@ rule "czy_czlowiek"
 			insert(new Fact("zywa_istota", "Tak"));
 end;
 
-rule "czy_zywa_osoba"
-	salience $order	
-	when
-		Ranking(ruleId == 1, $order: order)
-		not(exists Fact(type == "zywa_istota"))
-    then
-		Fact fact = Question.Ask("zywa_istota");
-		insert(fact);
-		
-		if(fact.CompareValueWith("Nie"))
-			insert(new Fact("czlowiek", "Nie"));
-end;
-
 rule "jaki_kolor_wlosow"
 	salience $order
 	when
@@ -52,4 +39,80 @@ rule "jaka_plec"
 		insert(fact);
 end;
 
+rule "czy_jedi"
+	salience $order
+	when
+		Ranking(ruleId == 4, $order:order)
+		Fact(type == "zywa_istota", value == "Tak")
+	then
+		Fact fact = Question.Ask("jedi");
+		insert(fact);
+end;
+
+rule "czy_sith"
+	salience $order
+	when
+		Ranking(ruleId == 5, $order:order)
+		Fact(type == "zywa_istota", value == "Tak")
+	then
+		Fact fact = Question.Ask("sith");
+		insert(fact);
+end;
+
+rule "jaka_bron"
+	salience $order
+	when
+		Ranking(ruleId == 6, $order:order)
+		Fact(type == "zywa_istota", value == "Tak")
+	then
+		Fact fact = Question.Ask("bron");
+		insert(fact);
+end;
+
+rule "jaki_miecz"
+	salience $order
+	when
+		Ranking(ruleId == 7, $order:order)
+		Fact(type == "zywa_istota", value == "Tak")
+		Fact(type == "bron", value == "Miecz swietlny")
+	then
+		Fact fact = Question.Ask("kolor_miecza");
+		insert(fact);
+end;
+
+rule "czy_maska"
+	salience $order
+	when
+		Ranking(ruleId == 8, $order:order)
+		Fact(type == "zywa_istota", value == "Tak")
+	then
+		Fact fact = Question.Ask("maska");
+		insert(fact);
+end;
+
+rule "jaki_rozmiar"
+	salience $order
+	when
+		Ranking(ruleId == 9, $order:order)
+	then
+		Fact fact = Question.Ask("rozmiar");
+		insert(fact);
+end;
+
+rule "czy_robot"
+	salience $order	
+	when
+		Ranking(ruleId == 10, $order: order)
+		not(exists Fact(type == "zywa_istota", value == "Tak"))
+		not(exists Fact(type == "czlowiek", value == "Tak"))
+    then
+		Fact fact = Question.Ask("robot");
+		insert(fact);
+		
+		if(fact.CompareValueWith("Tak"))
+		{
+			insert(new Fact("czlowiek", "Nie"));
+			insert(new Fact("zywa_istota", "Nie"));
+		}
+end;
 
