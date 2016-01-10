@@ -44,6 +44,7 @@ public class ConsoleProgram {
         KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
         kbuilder.add(ResourceFactory.newClassPathResource("knowlage.drl"), ResourceType.DRL);
         kbuilder.add(ResourceFactory.newClassPathResource("questions.drl"), ResourceType.DRL);
+        kbuilder.add(ResourceFactory.newClassPathResource("auxiliary-rules.drl"), ResourceType.DRL);
         KnowledgeBuilderErrors errors = kbuilder.getErrors();
         if (errors.size() > 0) {
             for (KnowledgeBuilderError error: errors) {

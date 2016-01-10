@@ -113,8 +113,7 @@ rule "Yoda"
 			)
 			and
 			Fact(type == "kolor_postaci", value == "Zielony")
-		)
-		
+		)	
 	then
 		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
 		System.exit(0);
@@ -173,6 +172,7 @@ rule "Anakin Skywalker - Darth Vader"
 			Fact(type == "sith", value == "Tak")
 		)
 		Fact(type == "maska", value == "Tak")
+		Fact(type == "ojciec", value == "Nie")
 	then
 		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
 		System.exit(0);
@@ -229,5 +229,3 @@ rule "Rey"
 		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
 		System.exit(0);
 end;
-
-
