@@ -19,6 +19,19 @@ rule "czy_czlowiek"
 			insert(new Fact("zywa_istota", "Tak"));
 end;
 
+rule "czy_zywa_istota"
+    salience $order    
+    when
+        Ranking(ruleId == 1, $order: order)
+        not(exists Fact(type == "zywa_istota"))
+    then
+        Fact fact = Question.Ask("zywa_istota");
+        insert(fact);
+        
+        if(fact.CompareValueWith("Nie"))
+            insert(new Fact("czlowiek", "Nie"));
+end;
+
 rule "jaki_kolor_wlosow"
 	salience $order
 	when
@@ -63,7 +76,6 @@ rule "jaka_bron"
 	salience $order
 	when
 		Ranking(ruleId == 6, $order:order)
-		Fact(type == "zywa_istota", value == "Tak")
 	then
 		Fact fact = Question.Ask("bron");
 		insert(fact);
@@ -105,6 +117,7 @@ rule "czy_robot"
 		Ranking(ruleId == 10, $order: order)
 		not(exists Fact(type == "zywa_istota", value == "Tak"))
 		not(exists Fact(type == "czlowiek", value == "Tak"))
+		not(exists Fact(type == "poruszanie", value == "Suwa sie"))
     then
 		Fact fact = Question.Ask("robot");
 		insert(fact);
@@ -116,3 +129,17 @@ rule "czy_robot"
 		}
 end;
 
+rule "jak_porusza"
+	salience $order	
+	when
+		Ranking(ruleId == 11, $order: order)
+    then
+		Fact fact = Question.Ask("poruszanie");
+		insert(fact);
+		
+		if(fact.CompareValueWith("Jezdzi"))
+		{
+			insert(new Fact("czlowiek", "Nie"));
+			insert(new Fact("zywa_istota", "Nie"));
+		}
+end;

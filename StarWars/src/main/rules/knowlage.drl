@@ -33,3 +33,40 @@ Jar-jar Binks
 Grievous
 Mace Windu
 */
+
+rule "R2D2"
+	when
+		Fact(type == "robot", value == "Tak")
+		Fact(type == "rozmiar", value == "Niski")
+		Fact(type == "bron", value == "Inna")
+		Fact(type == "poruszanie", value == "Jezdzi")
+	then
+		System.out.println("R2D2!");
+		System.exit(0);
+end;
+
+rule "C3PO"
+	when
+		Fact(type == "robot", value == "Tak")
+		Fact(type == "rozmiar", value == "Wysoki")
+		Fact(type == "bron", value == "Brak")
+		Fact(type == "poruszanie", value == "Chodzi")
+	then
+		System.out.println("C3PO");
+		System.exit(0);
+end;
+
+rule "Jabba"
+	when
+		Fact(type == "zywa_istota", value == "Tak")
+		Fact(type == "bron", value == "Brak")
+		Fact(type == "poruszanie", value == "Suwa sie")
+		Fact(type == "rozmiar", value != "Niski")
+		(Fact(type == "plec", value != "Obojnak")
+		or
+		Fact(type == "plec", value != "Niewiadomo"))
+		Fact(type == "kolor_wlosow", value == "Nie ma")
+	then
+		System.out.println("Jabba");
+		System.exit(0);
+end;
