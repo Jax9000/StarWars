@@ -84,7 +84,7 @@ rule "Jabba"
 			or
 			Fact(type == "plec", value != "Niewiadomo")
 		)
-		Fact(type == "kolor_wlosow", value == "Nie ma")
+		Fact(type == "kolor_wlosow", value == "Brak")
 	then
 		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
 		System.exit(0);
@@ -172,7 +172,7 @@ rule "Anakin Skywalker - Darth Vader"
 			Fact(type == "sith", value == "Tak")
 		)
 		Fact(type == "maska", value == "Tak")
-		Fact(type == "ojciec", value == "Nie")
+		Fact(type == "rozmiar", value == "Wysoki")
 	then
 		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
 		System.exit(0);
@@ -198,13 +198,18 @@ rule "Leia Organa"
 		System.exit(0);
 end;
 
-rule "Chewbacca" 
+rule "Chewbacca"  //TO TEST
 	salience 1000000
 	when
 		Fact(type == "czlowiek", value == "Nie")
 		Fact(type == "zywa_istota", value == "Tak")
 		Fact(type == "bron", value == "Blaster")
-		Fact(type == "kolor_postaci", value == "Brazowy")
+		(
+			Fact(type == "kolor_postaci", value == "Brazowy")
+			or
+			Fact(type == "kolor_wlosow", value == "Brazowe")
+		)
+		
 	then
 		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
 		System.exit(0);
@@ -229,3 +234,185 @@ rule "Rey"
 		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
 		System.exit(0);
 end;
+
+rule "Finn" 
+	salience 1000000
+	when
+		Fact(type == "czlowiek", value == "Tak")
+		Fact(type == "plec", value == "Mezczyzna")
+		Fact(type == "kolor_wlosow", value == "Czarne")
+		(
+			Fact(type == "bron", value == "Blaster")
+			or
+			(
+				Fact(type == "bron", value == "Miecz swietlny")
+				and
+				Fact(type == "kolor_miecza", value == "Niebieski")
+			)
+		)
+	then
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+end;
+
+rule "Boba Fett" 
+	salience 1000000
+	when
+		Fact(type == "czlowiek", value == "Tak")
+		Fact(type == "plec", value == "Mezczyzna")
+		Fact(type == "maska", value == "Tak")
+		(
+			Fact(type == "bron", value == "Blaster")
+			or
+			Fact(type == "bron", value == "Inna")
+		)
+	then
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+end;
+
+rule "Padme Amidala" 
+	salience 1000000
+	when
+		Fact(type == "czlowiek", value == "Tak")
+		Fact(type == "plec", value == "Kobieta")
+		Fact(type == "kolor_wlosow", value == "Brazowe")
+		Fact(type == "ojciec", value == "Nie")
+		(
+			Fact(type == "bron", value == "Blaster")
+			or
+			Fact(type == "bron", value == "Brak")
+		)
+		
+	then
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+end;
+
+rule "Darth Maul" 
+	salience 1000000
+	when
+		Fact(type == "czlowiek", value == "Nie")
+		Fact(type == "zywa_istota", value == "Tak")
+		Fact(type == "plec", value == "Mezczyzna")
+		Fact(type == "kolor_wlosow", value == "Brak")
+		Fact(type == "kolor_miecza", value == "Czerwony")
+		Fact(type == "sith", value == "Tak")
+	then
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+end;
+
+rule "Sheev Palpatine - Darth Sidious" 
+	salience 1000000
+	when
+		Fact(type == "czlowiek", value == "Tak")
+		Fact(type == "plec", value == "Mezczyzna")
+		Fact(type == "sith", value == "Tak")
+		Fact(type == "jedi", value == "Nie")
+		(
+			Fact(type == "kolor_wlosow", value == "Brak")
+			or
+			Fact(type == "kolor_wlosow", value == "Siwe")
+		)
+		(
+			Fact(type == "bron", value == "Brak")
+			or
+			(
+				Fact(type == "bron", value == "Miecz swietlny")
+				and
+				Fact(type == "kolor_miecza", value == "Czerwony")
+			)
+		)
+	then
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+end;
+
+rule "Count Dooku - Darth Tyranus" 
+	salience 1000000
+	when
+		Fact(type == "czlowiek", value == "Tak")
+		Fact(type == "plec", value == "Mezczyzna")
+		Fact(type == "sith", value == "Tak")
+		Fact(type == "jedi", value == "Tak")
+		Fact(type == "kolor_wlosow", value == "Siwe")
+		Fact(type == "bron", value == "Miecz swietlny")
+		Fact(type == "kolor_miecza", value == "Czerwony")
+	then
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+end;
+
+rule "Qui-gon Jinn" 
+	salience 1000000
+	when
+		Fact(type == "czlowiek", value == "Tak")
+		Fact(type == "plec", value == "Mezczyzna")
+		Fact(type == "jedi", value == "Tak")
+		Fact(type == "kolor_wlosow", value == "Brazowe")
+		Fact(type == "kolor_miecza", value == "Zielony")
+		Fact(type == "rozmiar", value != "Niski")
+	then
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+end;
+
+rule "Mace Windu" 
+	salience 1000000
+	when
+		Fact(type == "czlowiek", value == "Tak")
+		Fact(type == "plec", value == "Mezczyzna")
+		Fact(type == "jedi", value == "Tak")
+		Fact(type == "kolor_wlosow", value == "Brak")
+		Fact(type == "kolor_miecza", value == "Fioletowy")
+		Fact(type == "rozmiar", value != "Niski")
+	then
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+end;
+
+rule "Jar-jar Binks" 
+	salience 1000000
+	when
+		Fact(type == "czlowiek", value == "Nie")
+		Fact(type == "zywa_istota", value == "Tak")
+		Fact(type == "plec", value == "Mezczyzna")
+		Fact(type == "jedi", value == "Nie")
+		Fact(type == "kolor_wlosow", value == "Brak")
+		Fact(type == "kolor_postaci", value == "Brazowy")
+		Fact(type == "rozmiar", value != "Niski")
+		(
+			Fact(type == "bron", value == "Inna")
+			or
+			Fact(type == "bron", value == "Brak")
+		)
+		not(exists Fact(type == "poruszanie", value == "Suwa sie",
+						value == "Jezdzi")
+			) // to mozna dodac w wiekszosci
+	then
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+end;
+
+rule "Griveous" 
+	salience 1000000
+	when
+		Fact(type == "czlowiek", value == "Nie")
+		Fact(type == "plec", value == "Mezczyzna")
+		Fact(type == "kolor_wlosow", value == "Brak")
+		(
+			Fact(type == "kolor_miecza", value == "Zielony")
+			or
+			Fact(type == "kolor_miecza", value == "Niebieski")
+		)
+		not(exists Fact(type == "rozmiar", value == "Niski"))
+		not(exists Fact(type == "poruszanie", value == "Suwa sie",
+						value == "Jezdzi")
+			) // to mozna dodac w wiekszosci
+	then
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+end;
+
+

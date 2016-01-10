@@ -3,7 +3,6 @@ package starWars
 
 //list any import classes here.
 import starWars.Question;
-import javax.swing.*;
 
 //declare any global variables here
 
@@ -64,6 +63,7 @@ rule "czy_sith"
 	when
 		Ranking(ruleId == 5, $order:order)
 		Fact(type == "zywa_istota", value == "Tak")
+		not(exists Fact(type == "plec", value == "Kobieta")) 
 	then
 		Fact fact = Question.Ask("sith");
 		insert(fact);
@@ -93,7 +93,7 @@ rule "czy_maska"
 	salience $order
 	when
 		Ranking(ruleId == 8, $order:order)
-		Fact(type == "zywa_istota", value == "Tak")
+		Fact(type == "czlowiek", value == "Tak")
 	then
 		Fact fact = Question.Ask("maska");
 		insert(fact);
@@ -125,6 +125,7 @@ rule "jak_porusza"
 	salience $order	
 	when
 		Ranking(ruleId == 11, $order: order)
+		Fact(type == "czlowiek", value == "Nie")
     then
 		Fact fact = Question.Ask("poruszanie");
 		insert(fact);
@@ -147,8 +148,8 @@ rule "jaki_kolor_postaci"
 	salience $order
 	when
 		Ranking(ruleId == 13, $order: order)
-		not(exists Fact(type == "czlowiek", value == "Tak"))
-		not(exists Fact(type == "robot", value == "Tak"))
+		Fact(type == "czlowiek", value == "Nie")
+		Fact(type == "robot", value == "Nie")
 		Fact(type=="zywa_istota", value == "Tak")
 	then
 		Fact fact = Question.Ask("kolor_postaci");
@@ -159,7 +160,8 @@ rule "zabity_przez_syna"
 	salience $order
 	when
 		Ranking(ruleId == 14, $order: order)
-		not(exists Fact(type == "robot", value == "Tak"))
+		Fact(type == "czlowiek", value == "Tak")
+		Fact(type == "kolor_miecza", value == "Czerwony")
 	then
 		Fact fact = Question.Ask("zabity_przez_syna");
 		insert(fact);
@@ -170,6 +172,7 @@ rule "czy_vader_ojcem"
 	when
 		Ranking(ruleId == 15, $order: order)
 		Fact(type == "czlowiek", value == "Tak")
+		Fact(type == "sith", value == "Nie")
 	then
 		Fact fact = Question.Ask("ojciec");
 		insert(fact);

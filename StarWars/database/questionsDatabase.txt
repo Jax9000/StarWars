@@ -19,7 +19,7 @@ questionList:
 - content: Jakiego koloru wlosy ma twoja postac?
   factType: kolor_wlosow
   id: kolor_wlosow
-  possiblyAnswers: [Blond, Ciemny blond, Brazowe, Siwe, Kasztanowe, Czarne, Nie ma]
+  possiblyAnswers: [Blond, Ciemny blond, Brazowe, Siwe, Kasztanowe, Czarne, Brak]
 - content: Czy twoja postac byla badz jest jedi?
   factType: jedi
   id: jedi
