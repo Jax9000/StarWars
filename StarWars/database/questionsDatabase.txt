@@ -4,26 +4,6 @@
 #W polu possibly answers podaj tylko jeden parametr [INT] lub [FLOAT] aby wsyswietlic okienko do wpisania wartosci int/float.
 !database
 questionList:
-- content: Lubisz mnie?
-  factType: lubienie
-  id: like_me
-  possiblyAnswers: [Tak, Nie]
-- content: Kogo bys tutaj chcial?
-  factType: chcenie
-  id: want_who
-  possiblyAnswers: [Jacek, Konrad]
-- content: Kupa numer 3 super pytanie?
-  factType: wystepowanie2
-  id: shit
-  possiblyAnswers: [asd, asd, asdawd]
-- content: Ostatnie  zdecydowanie najlepsze pytanie w ktorym bardzo potrzebne sa przecinki...
-  factType: wystepowanie2
-  id: last_best
-  possiblyAnswers: [asd, asd, asdawd]
-- content: Podaj inta 3.
-  factType: test_inta
-  id: int_value
-  possiblyAnswers: [INT]
 - content: Czy twoja postac jest czlowiekiem?
   factType: czlowiek
   id: czlowiek
@@ -72,7 +52,15 @@ questionList:
   factType: poruszanie
   id: poruszanie
   possiblyAnswers: [Chodzi, Suwa sie, Jezdzi]
-- content: Jakie koloru jest ta postac?
+- content: Jakie koloru jest ten robot?
   factType: kolor_robota
   id: kolor_robota
   possiblyAnswers: [Niebieski, Pomaranczowy]
+- content: Jakiego koloru jest ta postac?
+  factType: kolor_postaci
+  id: kolor_postaci
+  possiblyAnswers: [Zielony, Brazowy, Czarny, Inny]
+- content: Czy zostal zabity przez swojego syna?
+  factType: zabity_przez_syna
+  id: zabity_przez_syna
+  possiblyAnswers: [Tak, Nie]

@@ -150,9 +150,38 @@ rule "jaki_kolor_robota"
 		Ranking(ruleId == 12, $order: order)
 		exists(Fact(type=="robot", value=="Tak"))
 		exists(Fact(type=="poruszanie", value=="Jezdzi"))
-		exists(Fact(type == "rozmiar", value == "Niski"))
+		exists(Fact(type == "rozmiar", value=="Niski"))
 		exists(Fact(type=="robot", value=="Tak"))
 	then
 		Fact fact = Question.Ask("kolor_robota");
 		insert(fact);
+end;
+
+rule "jaki_kolor_postaci"
+	salience $order
+	when
+		Ranking(ruleId == 12, $order: order)
+		not(exists Fact(type == "czlowiek", value == "Tak"))
+		not(exists Fact(type == "robot", value == "Tak"))
+		exists(Fact(type=="zywa_istota", value == "Tak"))
+	then
+		Fact fact = Question.Ask("kolor_postaci");
+		insert(fact);
+end;
+
+rule "zabity_przez_syna"
+	salience $order
+	when
+		Ranking(ruleId == 12, $order: order)
+		not(exists Fact(type == "robot", value == "Tak"))
+	then
+		Fact fact = Question.Ask("zabity_przez_syna");
+		insert(fact);
+		
+		if(fact.CompareValueWith("Tak"))
+		{
+			insert(new Fact("czlowiek", "Tak"));
+			insert(new Fact("zywa_istota", "Tak"));
+			insert(new Fact("robot", "Nie"));
+		}
 end;
