@@ -59,6 +59,8 @@ public class ConsoleProgram {
     private static void InsertRankingMultiple(int times, StatefulKnowledgeSession ksession)
     {
         Random random = new Random();
+        int MAX_QUESTION_ORDER = 1000000;
+        random.nextInt(MAX_QUESTION_ORDER);
         for(int i = 0; i<times; i++)
         {
         	Ranking ranking = new Ranking(i, random.nextInt());
