@@ -40,8 +40,21 @@ rule "R2D2"
 		Fact(type == "rozmiar", value == "Niski")
 		Fact(type == "bron", value == "Inna")
 		Fact(type == "poruszanie", value == "Jezdzi")
+		Fact(type == "kolor_robota", value == "Niebieski")
 	then
-		System.out.println("R2D2!");
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+end;
+
+rule "BB8"
+	when
+		Fact(type == "robot", value == "Tak")
+		Fact(type == "rozmiar", value == "Niski")
+		Fact(type == "bron", value == "Inna")
+		Fact(type == "poruszanie", value == "Jezdzi")
+		Fact(type == "kolor_robota", value == "Pomaranczowy")
+	then
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
 		System.exit(0);
 end;
 
@@ -52,7 +65,7 @@ rule "C3PO"
 		Fact(type == "bron", value == "Brak")
 		Fact(type == "poruszanie", value == "Chodzi")
 	then
-		System.out.println("C3PO");
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
 		System.exit(0);
 end;
 
@@ -67,6 +80,6 @@ rule "Jabba"
 		Fact(type == "plec", value != "Niewiadomo"))
 		Fact(type == "kolor_wlosow", value == "Nie ma")
 	then
-		System.out.println("Jabba");
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
 		System.exit(0);
 end;

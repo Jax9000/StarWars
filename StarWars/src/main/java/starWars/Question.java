@@ -52,7 +52,7 @@ public class Question {
 		Question.database = database;
 	}
 	
-	//Usefull methods
+	//Useful methods
 	/**
 	 * Show question dialog and get answer.
 	 * @param questionID

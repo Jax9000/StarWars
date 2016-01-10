@@ -72,3 +72,7 @@ questionList:
   factType: poruszanie
   id: poruszanie
   possiblyAnswers: [Chodzi, Suwa sie, Jezdzi]
+- content: Jakie koloru jest ta postac?
+  factType: kolor_robota
+  id: kolor_robota
+  possiblyAnswers: [Niebieski, Pomaranczowy]

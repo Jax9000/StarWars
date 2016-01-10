@@ -143,3 +143,16 @@ rule "jak_porusza"
 			insert(new Fact("zywa_istota", "Nie"));
 		}
 end;
+
+rule "jaki_kolor_robota"
+	salience $order
+	when
+		Ranking(ruleId == 12, $order: order)
+		exists(Fact(type=="robot", value=="Tak"))
+		exists(Fact(type=="poruszanie", value=="Jezdzi"))
+		exists(Fact(type == "rozmiar", value == "Niski"))
+		exists(Fact(type=="robot", value=="Tak"))
+	then
+		Fact fact = Question.Ask("kolor_robota");
+		insert(fact);
+end;

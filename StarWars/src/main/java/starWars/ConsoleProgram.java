@@ -26,7 +26,7 @@ public class ConsoleProgram {
             StatefulKnowledgeSession ksession = kbase.newStatefulKnowledgeSession();
             KnowledgeRuntimeLogger logger = KnowledgeRuntimeLoggerFactory.newFileLogger(ksession, "test");
             // go !
-            JOptionPane.showMessageDialog(null, "Pomyœl o czymœ z StarWars, program przy\npomocy dialogu postara siê odgadnaæ to coœ.", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Pomyœl o dowolnej postaci z StarWars, program przy\npomocy dialogu postara siê odgadnaæ o jakiej postaci pomyœla³eœ.", "StarWars", JOptionPane.INFORMATION_MESSAGE);
             
             
             Database database = YAMLManager.LoadDatabase(Database.defaultSaveFilePath);
