@@ -187,3 +187,12 @@ rule "z_jakiej_planety"
 		Fact fact = Question.Ask("jaka_planeta");
 		insert(fact);
 end;
+
+rule "z_ktorej_czesci"
+	salience $order
+	when
+		Ranking(ruleId == 16, $order: order)
+	then
+		Fact fact = Question.Ask("ktora_czesc");
+		insert(fact);
+end;

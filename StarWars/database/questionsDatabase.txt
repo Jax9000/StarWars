@@ -72,4 +72,7 @@ questionList:
   factType: planeta
   id: planeta
   possiblyAnswers: [Endor, Naboo, Mustafar, Tatooine, Lehon]
-  
+- content: W ktorej czesci wystepowala ta postac?
+  factType: ktora_czesc
+  id: ktora_czesc
+  possiblyAnswers: [I Mroczne widmo , II Atak klonow, III Zemsta Sithow, IV Nowa nadzieja, V Imperium kontratakuje, VI Powrot Jedi, VII Przebudzenie Mocy]

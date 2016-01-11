@@ -456,3 +456,23 @@ rule "Gregar Typho"
 		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
 		System.exit(0);
 end;
+
+//nute gunray
+//lando calrissian
+rule "Nute Gunray"
+	salience 1000000
+	when
+		Fact(type == "zywa_istota", value == "Tak")
+	then
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+end;
+
+rule "Lando Calrissian"
+	salience 1000000
+	when
+		Fact(type == "zywa_istota", value == "Tak")
+	then
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+end;
