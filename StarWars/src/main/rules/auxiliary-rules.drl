@@ -44,6 +44,8 @@ rule "ustaw zywa_istota"
 			Fact(type == "zabity_przez_syna", value == "Tak")
 			or
 			Fact(type == "czlowiek", value == "Tak")
+			or
+			Fact(type == "robot", value == "Nie")
 		)
 	then
 		insert(new Fact("zywa_istota", "Tak"));
@@ -86,4 +88,34 @@ rule "ustaw nie robot"
 		)
 	then
 		insert(new Fact("robot", "Nie"));
+end;
+
+rule "ustaw nowa trylogie"
+	salience 2000
+	when
+		not(exists Fact(type == "trylogia"))
+		(
+			Fact(type == "ktora_czesc", value == "I Mroczne widmo")
+			or
+			Fact(type == "ktora_czesc", value == "II Atak klonow")
+			or
+			Fact(type == "ktora_czesc", value == "III Zemsta Sithow")
+		)
+	then
+		insert(new Fact("trylogia", "Nowa"));
+end;
+
+rule "ustaw stara trylogie"
+	salience 2000
+	when
+		not(exists Fact(type == "trylogia"))
+		(
+			Fact(type == "ktora_czesc", value == "IV Nowa nadzieja")
+			or
+			Fact(type == "ktora_czesc", value == "V Imperium kontratakuje")
+			or
+			Fact(type == "ktora_czesc", value == "VI Powrot Jedi")
+		)
+	then
+		insert(new Fact("trylogia", "Stara"));
 end;

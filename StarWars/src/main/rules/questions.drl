@@ -148,9 +148,17 @@ rule "jaki_kolor_postaci"
 	salience $order
 	when
 		Ranking(ruleId == 13, $order: order)
-		Fact(type == "czlowiek", value == "Nie")
-		Fact(type == "robot", value == "Nie")
-		Fact(type=="zywa_istota", value == "Tak")
+		(
+			Fact(type == "robot", value == "Nie")
+			and
+			Fact(type=="zywa_istota", value == "Tak")
+		)
+		or
+		(
+			Fact(type == "czlowiek", value == "Tak")
+			and
+			Fact(type == "maska", value == "Tak")
+		)
 	then
 		Fact fact = Question.Ask("kolor_postaci");
 		insert(fact);
@@ -184,7 +192,7 @@ rule "z_jakiej_planety"
 		Ranking(ruleId == 16, $order: order)
 		not(exists Fact(type == "zywa_istota", value == "Tak"))
 	then
-		Fact fact = Question.Ask("jaka_planeta");
+		Fact fact = Question.Ask("planeta");
 		insert(fact);
 end;
 
