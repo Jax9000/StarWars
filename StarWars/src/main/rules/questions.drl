@@ -177,3 +177,13 @@ rule "czy_vader_ojcem"
 		Fact fact = Question.Ask("ojciec");
 		insert(fact);
 end;
+
+rule "z_jakiej_planety"
+	salience $order
+	when
+		Ranking(ruleId == 16, $order: order)
+		not(exists Fact(type == "zywa_istota", value == "Tak"))
+	then
+		Fact fact = Question.Ask("jaka_planeta");
+		insert(fact);
+end;

@@ -415,4 +415,44 @@ rule "Griveous"
 		System.exit(0);
 end;
 
+//Jango Fett
+//Watto
+//Cliegg Lars
+//Gregar Typho
+//co powiesz? ale ja kurwa nie wiem jakie reguly
 
+rule "Jango Fett"
+	salience 1000000
+	when
+		Fact(type == "zywa_istota", value == "Tak")
+	then
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+end;
+
+rule "Watto"
+	salience 1000000
+	when
+		Fact(type == "zywa_istota", value == "Tak")
+	then
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+end;
+
+rule "Cliegg Lars"
+	salience 1000000
+	when
+		Fact(type == "zywa_istota", value == "Tak")
+	then
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+end;
+
+rule "Gregar Typho"
+	salience 1000000
+	when
+		Fact(type == "zywa_istota", value == "Tak")
+	then
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+end;

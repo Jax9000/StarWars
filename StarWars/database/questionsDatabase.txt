@@ -68,4 +68,8 @@ questionList:
   factType: ojciec
   id: ojciec
   possiblyAnswers: [Tak, Nie]
+- content: Z jakiej planety pochodzi postac?
+  factType: planeta
+  id: planeta
+  possiblyAnswers: [Endor, Naboo, Mustafar, Tatooine, Lehon]
   
