@@ -444,6 +444,7 @@ rule "Griveous"
 		System.exit(0);
 end;
 
+
 rule "Jango Fett"
 	salience 1000000
 	when
@@ -537,6 +538,57 @@ rule "Lando Calrissian"
 			or
 			Fact(type == "ktora_czesc", value == "VI Powrot Jedi")
 		)
+	then
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+end;
+
+rule "Stormtrooper"
+	salience 1000000
+	when
+		Fact(type == "zywa_istota", value == "Tak")
+		Fact(type == "czlowiek", value == "Tak")
+		Fact(type == "plec", value == "Mezczyzna")
+		Fact(type == "poruszanie", value == "Chodzi")
+		Fact(type == "jedi", value == "Nie")
+		Fact(type == "sith", value == "Nie")
+		Fact(type == "maska", value == "Tak")
+		Fact(type == "kolor", value == "Bialy")
+	then
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+end;
+
+rule "Kyle Katarn"
+	salience 1000000
+	when
+		Fact(type == "zywa_istota", value == "Tak")
+		Fact(type == "czlowiek", value == "Tak")
+		Fact(type == "plec", value == "Mezczyzna")
+		Fact(type == "poruszanie", value == "Chodzi")
+		Fact(type == "jedi", value == "Tak")
+		Fact(type == "maska", value == "Nie")
+		Fact(type == "ktora_czesc", value == "Zadnej")
+		Fact(type == "kolor_miecza", value == "Niebieski")		
+		Fact(type == "kolor_wlosow", value == "Brazowe")		
+	then
+		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
+end;
+
+rule "Galen Marek"
+	salience 1000000
+	when
+		Fact(type == "zywa_istota", value == "Tak")
+		Fact(type == "czlowiek", value == "Tak")
+		Fact(type == "plec", value == "Mezczyzna")
+		Fact(type == "poruszanie", value == "Chodzi")
+		Fact(type == "jedi", value == "Nie")
+		Fact(type == "sith", value == "Tak")
+		Fact(type == "maska", value == "Nie")
+		Fact(type == "ktora_czesc", value == "Zadnej")
+		Fact(type == "bron", value == "Miecz swietlny")		
+		Fact(type == "kolor_wlosow", value == "Brazowe")		
 	then
 		JOptionPane.showMessageDialog(null, "Postaæ o której pomyœla³eœ to: " + drools.getRule().getName() + "!", "StarWars", JOptionPane.INFORMATION_MESSAGE);
 		System.exit(0);

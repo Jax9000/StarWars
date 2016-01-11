@@ -55,11 +55,11 @@ questionList:
 - content: Jakie koloru jest ten robot?
   factType: kolor_robota
   id: kolor_robota
-  possiblyAnswers: [Niebieski, Pomaranczowy]
+  possiblyAnswers: [Niebieski, Pomaranczowy, Inny]
 - content: Jakiego koloru jest ta postac?
   factType: kolor_postaci
   id: kolor_postaci
-  possiblyAnswers: [Niebieski, Zielony, Brazowy, Czarny, Inny]
+  possiblyAnswers: [Niebieski, Zielony, Brazowy, Czarny, Bialy, Inny]
 - content: Czy zostal zabity przez swojego syna?
   factType: zabity_przez_syna
   id: zabity_przez_syna
@@ -71,8 +71,8 @@ questionList:
 - content: Z jakiej planety pochodzi postac?
   factType: planeta
   id: planeta
-  possiblyAnswers: [Endor, Naboo, Mustafar, Tatooine, Lehon]
+  possiblyAnswers: [Endor, Naboo, Mustafar, Tatooine, Lehon, Inna]
 - content: W ktorej czesci wystepowala ta postac?
   factType: ktora_czesc
   id: ktora_czesc
-  possiblyAnswers: [I Mroczne widmo, II Atak klonow, III Zemsta Sithow, IV Nowa nadzieja, V Imperium kontratakuje, VI Powrot Jedi, VII Przebudzenie Mocy]
+  possiblyAnswers: [I Mroczne widmo, II Atak klonow, III Zemsta Sithow, IV Nowa nadzieja, V Imperium kontratakuje, VI Powrot Jedi, VII Przebudzenie Mocy, Zadnej]
