@@ -1,0 +1,121 @@
+//created on: 2016-01-10
+/**
+ * File for rules which are fired up immediately with no user interaction
+ * It was created to avoid creating duplicate rules.
+ */
+package starWars
+
+//list any import classes here.
+import starWars.Question;
+
+//declare any global variables here
+
+rule "ustaw czlowiek"
+	salience 2000
+	when
+		not(exists Fact(type == "czlowiek"))
+		(
+			Fact(type == "zabity_przez_syna", value == "Tak")
+		)
+	then
+		insert(new Fact("czlowiek", "Tak"));
+end;
+
+rule "ustaw nie czlowiek"
+	salience 2000
+	when
+		not(exists Fact(type == "czlowiek"))
+		(
+			Fact(type == "zywa_istota", value == "Nie")
+			or
+			Fact(type == "robot", value == "Tak")
+			or
+			Fact(type == "poruszanie", value == "Jezdzi")
+		)
+	then
+		insert(new Fact("czlowiek", "Nie"));
+end;
+
+rule "ustaw zywa_istota"
+	salience 2000
+	when
+		not(exists Fact(type == "zywa_istota"))
+		(
+			Fact(type == "zabity_przez_syna", value == "Tak")
+			or
+			Fact(type == "czlowiek", value == "Tak")
+			or
+			Fact(type == "robot", value == "Nie")
+		)
+	then
+		insert(new Fact("zywa_istota", "Tak"));
+end;
+
+rule "ustaw nie zywa_istota"
+	salience 2000
+	when
+		not(exists Fact(type == "zywa_istota"))
+		(
+			Fact(type == "robot", value == "Tak")
+			or
+			Fact(type == "poruszanie", value == "Jezdzi")
+		)
+	then
+		insert(new Fact("zywa_istota", "Nie"));
+end;
+
+rule "ustaw robot"
+	salience 2000
+	when
+		not(exists Fact(type == "robot"))
+		(
+			Fact(type == "poruszanie", value == "Jezdzi")
+		)
+	then
+		insert(new Fact("robot", "Tak"));
+end;
+
+rule "ustaw nie robot"
+	salience 2000
+	when
+		not(exists Fact(type == "robot"))
+		(
+			Fact(type == "zabity_przez_syna", value == "Tak")
+			or
+			Fact(type == "czlowiek", value == "Tak")
+			or
+			Fact(type == "zywa_istota", value == "Tak")
+		)
+	then
+		insert(new Fact("robot", "Nie"));
+end;
+
+rule "ustaw nowa trylogie"
+	salience 2000
+	when
+		not(exists Fact(type == "trylogia"))
+		(
+			Fact(type == "ktora_czesc", value == "I Mroczne widmo")
+			or
+			Fact(type == "ktora_czesc", value == "II Atak klonow")
+			or
+			Fact(type == "ktora_czesc", value == "III Zemsta Sithow")
+		)
+	then
+		insert(new Fact("trylogia", "Nowa"));
+end;
+
+rule "ustaw stara trylogie"
+	salience 2000
+	when
+		not(exists Fact(type == "trylogia"))
+		(
+			Fact(type == "ktora_czesc", value == "IV Nowa nadzieja")
+			or
+			Fact(type == "ktora_czesc", value == "V Imperium kontratakuje")
+			or
+			Fact(type == "ktora_czesc", value == "VI Powrot Jedi")
+		)
+	then
+		insert(new Fact("trylogia", "Stara"));
+end;

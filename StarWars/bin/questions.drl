@@ -1,0 +1,207 @@
+//created on: 2016-01-09
+package starWars
+
+//list any import classes here.
+import starWars.Question;
+
+//declare any global variables here
+
+rule "czy_czlowiek"
+	salience $order
+	when
+		Ranking(ruleId == 0, $order: order)
+		not(exists Fact(type == "zywa_istota", value == "Nie"))
+		not(exists Fact(type == "czlowiek"))
+    then
+		Fact fact = Question.Ask("czlowiek");
+		insert(fact);
+end;
+
+rule "czy_zywa_istota"
+    salience $order    
+    when
+        Ranking(ruleId == 1, $order: order)
+        not(exists Fact(type == "czlowiek", value == "Tak"))
+        not(exists Fact(type == "zywa_istota"))
+    then
+        Fact fact = Question.Ask("zywa_istota");
+        insert(fact);
+end;
+
+rule "jaki_kolor_wlosow"
+	salience $order
+	when
+		Ranking(ruleId == 2, $order: order)
+		Fact(type == "zywa_istota", value == "Tak")
+	then
+		Fact fact = Question.Ask("kolor_wlosow");
+		insert(fact);
+end;
+
+rule "jaka_plec"
+	salience $order
+	when
+		Ranking(ruleId == 3, $order:order)
+		Fact(type == "zywa_istota", value == "Tak")
+	then
+		Fact fact = Question.Ask("plec");
+		insert(fact);
+end;
+
+rule "czy_jedi"
+	salience $order
+	when
+		Ranking(ruleId == 4, $order:order)
+		Fact(type == "zywa_istota", value == "Tak")
+	then
+		Fact fact = Question.Ask("jedi");
+		insert(fact);
+end;
+
+rule "czy_sith"
+	salience $order
+	when
+		Ranking(ruleId == 5, $order:order)
+		Fact(type == "zywa_istota", value == "Tak")
+		not(exists Fact(type == "plec", value == "Kobieta")) 
+	then
+		Fact fact = Question.Ask("sith");
+		insert(fact);
+end;
+
+rule "jaka_bron"
+	salience $order
+	when
+		Ranking(ruleId == 6, $order:order)
+	then
+		Fact fact = Question.Ask("bron");
+		insert(fact);
+end;
+
+rule "jaki_miecz"
+	salience $order
+	when
+		Ranking(ruleId == 7, $order:order)
+		Fact(type == "zywa_istota", value == "Tak")
+		Fact(type == "bron", value == "Miecz swietlny")
+	then
+		Fact fact = Question.Ask("kolor_miecza");
+		insert(fact);
+end;
+
+rule "czy_maska"
+	salience $order
+	when
+		Ranking(ruleId == 8, $order:order)
+		Fact(type == "czlowiek", value == "Tak")
+	then
+		Fact fact = Question.Ask("maska");
+		insert(fact);
+end;
+
+rule "jaki_rozmiar"
+	salience $order
+	when
+		Ranking(ruleId == 9, $order:order)
+	then
+		Fact fact = Question.Ask("rozmiar");
+		insert(fact);
+end;
+
+rule "czy_robot"
+	salience $order	
+	when
+		Ranking(ruleId == 10, $order: order)
+		not(exists Fact(type == "zywa_istota", value == "Tak"))
+		not(exists Fact(type == "czlowiek", value == "Tak"))
+		not(exists Fact(type == "bron", value == "Miecz swietlny"))
+		not(exists Fact(type == "robot"))
+    then
+		Fact fact = Question.Ask("robot");
+		insert(fact);
+end;
+
+rule "jak_porusza"
+	salience $order	
+	when
+		Ranking(ruleId == 11, $order: order)
+		Fact(type == "czlowiek", value == "Nie")
+    then
+		Fact fact = Question.Ask("poruszanie");
+		insert(fact);
+end;
+
+rule "jaki_kolor_robota"
+	salience $order
+	when
+		Ranking(ruleId == 12, $order: order)
+		exists(Fact(type=="robot", value=="Tak"))
+		exists(Fact(type=="poruszanie", value=="Jezdzi"))
+		exists(Fact(type == "rozmiar", value=="Niski"))
+		exists(Fact(type=="robot", value=="Tak"))
+	then
+		Fact fact = Question.Ask("kolor_robota");
+		insert(fact);
+end;
+
+rule "jaki_kolor_postaci"
+	salience $order
+	when
+		Ranking(ruleId == 13, $order: order)
+		(
+			Fact(type=="zywa_istota", value == "Tak")
+			and
+			Fact(type == "czlowiek", value == "Nie")
+		)
+		or
+		(
+			Fact(type == "czlowiek", value == "Tak")
+			and
+			Fact(type == "maska", value == "Tak")
+		)
+	then
+		Fact fact = Question.Ask("kolor_postaci");
+		insert(fact);
+end;
+
+rule "zabity_przez_syna"
+	salience $order
+	when
+		Ranking(ruleId == 14, $order: order)
+		Fact(type == "czlowiek", value == "Tak")
+		Fact(type == "bron", value == "Blaster")
+	then
+		Fact fact = Question.Ask("zabity_przez_syna");
+		insert(fact);
+end;
+
+rule "czy_vader_ojcem"
+	salience $order
+	when
+		Ranking(ruleId == 15, $order: order)
+		Fact(type == "czlowiek", value == "Tak")
+		Fact(type == "sith", value == "Nie")
+		not(exists Fact(type == "maska", value == "Tak"))
+	then
+		Fact fact = Question.Ask("ojciec");
+		insert(fact);
+end;
+
+rule "z_jakiej_planety"
+	salience $order
+	when
+		Ranking(ruleId == 16, $order: order)
+		not(exists Fact(type == "zywa_istota", value == "Nie"))
+	then
+		Fact fact = Question.Ask("planeta");
+		insert(fact);
+end;
+
+rule "z_ktorej_czesci"
+	salience $order
+	when
+		Ranking(ruleId == 17, $order: order)
+	then
+		Fact fact = Question.Ask("ktora_czesc");
+		insert(fact);
+end;
