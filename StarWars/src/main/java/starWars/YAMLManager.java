@@ -25,8 +25,7 @@ public class YAMLManager {
 	 * New database instance.
 	 * @throws FileNotFoundException
 	 */
-	public static Database LoadDatabase(String filePath) throws FileNotFoundException {
-		InputStream input = new FileInputStream(new File(filePath));
+	public static Database LoadDatabase(InputStream input) throws FileNotFoundException {
 		Yaml yaml = new Yaml(GetConstructor());
         return (Database) yaml.load(input);
 	}

@@ -28,8 +28,7 @@ public class ConsoleProgram {
             // go !
             JOptionPane.showMessageDialog(null, "Pomyœl o dowolnej postaci z StarWars, program przy\npomocy dialogu postara siê odgadnaæ o jakiej postaci pomyœla³eœ.", "StarWars", JOptionPane.INFORMATION_MESSAGE);
             
-            
-            Database database = YAMLManager.LoadDatabase(Database.defaultSaveFilePath);
+            Database database = YAMLManager.LoadDatabase(new YAMLManager().getClass().getResourceAsStream(Database.defaultSaveFilePath));
             database.PrintToConsole();
             Question.setDatabase(database);
             InsertRankingMultiple(100, ksession);

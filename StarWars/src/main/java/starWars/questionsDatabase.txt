@@ -1,0 +1,78 @@
+#Nie mozna uzywac polskich znakow!
+#Przecinki w pytaniach zakazane, ale kropki moga byc!
+#Zapewne wiele innych rzeczy tez nie przejdzie...
+#W polu possibly answers podaj tylko jeden parametr [INT] lub [FLOAT] aby wsyswietlic okienko do wpisania wartosci int/float.
+!database
+questionList:
+- content: Czy twoja postac jest czlowiekiem?
+  factType: czlowiek
+  id: czlowiek
+  possiblyAnswers: [Tak, Nie]
+- content: Czy twoja postac jest zywa istota?
+  factType: zywa_istota
+  id: zywa_istota
+  possiblyAnswers: [Tak, Nie]
+- content: Jakiej plci jest twoja postac?
+  factType: plec
+  id: plec
+  possiblyAnswers: [Mezczyzna, Kobieta, Niewiadomo, Obojnak]
+- content: Jakiego koloru wlosy ma twoja postac?
+  factType: kolor_wlosow
+  id: kolor_wlosow
+  possiblyAnswers: [Blond, Ciemny blond, Brazowe, Siwe, Kasztanowe, Czarne, Brak]
+- content: Czy twoja postac byla badz jest jedi?
+  factType: jedi
+  id: jedi
+  possiblyAnswers: [Tak, Nie]
+- content: Czy twoja postac byla badz jest sithem?
+  factType: sith
+  id: sith
+  possiblyAnswers: [Tak, Nie]
+- content: Jakiej broni uzywa twoja postac?
+  factType: bron
+  id: bron
+  possiblyAnswers: [Blaster, Miecz swietlny, Inna, Brak]
+- content: Jakiego koloru miecz posiada twoja postac?
+  factType: kolor_miecza
+  id: kolor_miecza
+  possiblyAnswers: [Niebieski, Zielony, Czerwony, Fioletowy]
+- content: Czy twoja postac nosi maske?
+  factType: maska
+  id: maska
+  possiblyAnswers: [Tak, Nie]
+- content: Jakiego wzrostu jest twoja postac?
+  factType: rozmiar
+  id: rozmiar
+  possiblyAnswers: [Niski, Przecietny, Wysoki]
+- content: Czy twoja postac jest robotem?
+  factType: robot
+  id: robot
+  possiblyAnswers: [Tak, Nie]
+- content: Jak porusza sie twoja postac?
+  factType: poruszanie
+  id: poruszanie
+  possiblyAnswers: [Chodzi, Suwa sie, Jezdzi, Lata]
+- content: Jakie koloru jest ten robot?
+  factType: kolor_robota
+  id: kolor_robota
+  possiblyAnswers: [Niebieski, Pomaranczowy, Inny]
+- content: Jakiego koloru jest ta postac?
+  factType: kolor_postaci
+  id: kolor_postaci
+  possiblyAnswers: [Niebieski, Zielony, Brazowy, Czarny, Bialy, Inny]
+- content: Czy zostal zabity przez swojego syna?
+  factType: zabity_przez_syna
+  id: zabity_przez_syna
+  possiblyAnswers: [Tak, Nie]
+- content: Czy ojcem tej postaci jest Darth Vader?
+  factType: ojciec
+  id: ojciec
+  possiblyAnswers: [Tak, Nie]
+- content: Z jakiej planety pochodzi postac?
+  factType: planeta
+  id: planeta
+  possiblyAnswers: [Endor, Naboo, Mustafar, Tatooine, Lehon, Inna]
+- content: W ktorej czesci wystepowala ta postac?
+  factType: ktora_czesc
+  id: ktora_czesc
+  possiblyAnswers: [I Mroczne widmo, II Atak klonow, III Zemsta Sithow, IV Nowa nadzieja, V Imperium kontratakuje, VI Powrot Jedi, VII Przebudzenie Mocy, Zadnej]

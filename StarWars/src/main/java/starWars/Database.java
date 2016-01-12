@@ -3,7 +3,7 @@ package starWars;
 import java.util.List;
 
 public class Database {
-	public static final String defaultSaveFilePath = "database/questionsDatabase.txt";
+	public static final String defaultSaveFilePath = "questionsDatabase.txt";
 	
 	public Database(List<Question> questions) {
 		setQuestionList(questions);
