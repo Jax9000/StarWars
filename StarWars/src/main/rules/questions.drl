@@ -149,9 +149,9 @@ rule "jaki_kolor_postaci"
 	when
 		Ranking(ruleId == 13, $order: order)
 		(
-			Fact(type == "robot", value == "Nie")
-			and
 			Fact(type=="zywa_istota", value == "Tak")
+			and
+			Fact(type == "czlowiek", value == "Nie")
 		)
 		or
 		(
@@ -169,7 +169,7 @@ rule "zabity_przez_syna"
 	when
 		Ranking(ruleId == 14, $order: order)
 		Fact(type == "czlowiek", value == "Tak")
-		Fact(type == "kolor_miecza", value == "Czerwony")
+		Fact(type == "bron", value == "Blaster")
 	then
 		Fact fact = Question.Ask("zabity_przez_syna");
 		insert(fact);
@@ -181,6 +181,7 @@ rule "czy_vader_ojcem"
 		Ranking(ruleId == 15, $order: order)
 		Fact(type == "czlowiek", value == "Tak")
 		Fact(type == "sith", value == "Nie")
+		not(exists Fact(type == "maska", value == "Tak"))
 	then
 		Fact fact = Question.Ask("ojciec");
 		insert(fact);
@@ -190,7 +191,7 @@ rule "z_jakiej_planety"
 	salience $order
 	when
 		Ranking(ruleId == 16, $order: order)
-		not(exists Fact(type == "zywa_istota", value == "Tak"))
+		not(exists Fact(type == "zywa_istota", value == "Nie"))
 	then
 		Fact fact = Question.Ask("planeta");
 		insert(fact);
@@ -199,7 +200,7 @@ end;
 rule "z_ktorej_czesci"
 	salience $order
 	when
-		Ranking(ruleId == 16, $order: order)
+		Ranking(ruleId == 17, $order: order)
 	then
 		Fact fact = Question.Ask("ktora_czesc");
 		insert(fact);
